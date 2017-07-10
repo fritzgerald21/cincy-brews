@@ -1,0 +1,17 @@
+.oddRow{
+	background-color: #ff3e50;
+	border-radius: 5px;
+}
+
+.evenRow{
+	background-color: #577ae4;
+	border-radius: 5px;
+}
+
+.dataList{
+	padding: 10px;
+	margin: 10px;
+}
+.blackText{
+	color: #000;
+}

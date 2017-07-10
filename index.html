@@ -1,0 +1,64 @@
+<!doctype html>
+<html ng-app="cincybrews">
+<head>
+<title>Cincy Brews</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<!-- import highcharts -->
+<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+<!-- angular controller -->
+<script src="beer.js"></script>
+
+<script src="map.js"></script>
+
+<link rel="stylesheet" href= "main.css">
+</head>
+<body>
+<!--
+	<div ng-controller="Hello">
+		<p>The ID is {{test.data.id}}</p>
+		<p>The content is {{test.data.first_name}}</p>
+	</div>
+-->
+	<div ng-controller="Beer">
+		<div class= "container">
+			<div class= "jumbotron">
+				<script>document.write("<img src='{{randomBeer.data.labels.medium}}'>");</script>
+				<h2>Random Beer: {{randomBeer.data.name}}</h2>
+				<p>{{randomBeer.data.description}}</p>
+				
+			</div>
+			<div id= 'map'>
+
+			</div>
+
+
+
+		<h3>Breweries in Cincinnati</h3>
+		<script>
+
+			for(var i=0; i<26; i++){
+				if( i%2===0){
+					document.write("<div class= 'dataList evenRow'>");
+				}
+				else {
+					document.write("<div class= 'dataList oddRow'>");
+				}
+				document.write("<img src='{{brewery.data["+i+"].brewery.images.medium}}'><h4><a class= 'blackText' href= '{{brewery.data["+i+"].brewery.website}}'>{{brewery.data["+i+"].brewery.name}}</a></h4>{{brewery.data["+i+"].brewery.description}}");
+				document.write("</div>");
+		}
+		</script>
+		
+		<div class= "col-md-12 footer">
+			Powered By: BreweryDB
+		</div>
+	</div>
+</body>
+</html>
